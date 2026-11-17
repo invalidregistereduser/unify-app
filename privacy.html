@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy · Unify</title>
+<meta name="description" content="Privacy Policy for Unify, a better mobile experience for DII students.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --paper: #ffffff;
+    --ink: #161b26;
+    --muted: #5b6475;
+    --line: #e4e0d6;
+    --accent: #3d5afe;
+    --accent-soft: #eef1ff;
+    --good: #12805c;
+    --bad: #c2410c;
+    --hero: #0d1220;
+    --radius: 16px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b0f19;
+      --paper: #121828;
+      --ink: #e8ebf3;
+      --muted: #9aa3b5;
+      --line: #222a3d;
+      --accent: #7b8cff;
+      --accent-soft: #1a2142;
+      --good: #34d399;
+      --bad: #fb923c;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Reading progress */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0;
+    background: linear-gradient(90deg, #3d5afe, #22d3ee);
+    z-index: 100; transition: width .1s linear;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    background: var(--hero); color: #fff;
+    padding: 28px 24px 96px;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(600px 300px at 15% 20%, rgba(61,90,254,.45), transparent 60%),
+      radial-gradient(500px 280px at 85% 70%, rgba(34,211,238,.25), transparent 60%);
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(to bottom, #000 30%, transparent);
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .nav {
+    max-width: 1100px; margin: 0 auto 72px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.1rem; }
+  .logo {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: linear-gradient(135deg, #3d5afe, #22d3ee);
+    display: grid; place-items: center; font-family: "Fraunces", serif; font-weight: 700;
+  }
+  .pill {
+    font-size: .8rem; padding: 6px 12px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06);
+  }
+  .hero-content { max-width: 1100px; margin: 0 auto; }
+  .eyebrow { color: #93a4ff; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: .78rem; }
+  .hero h1 {
+    font-family: "Fraunces", serif; font-weight: 700;
+    font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.05;
+    margin: 14px 0 18px; max-width: 14ch;
+  }
+  .hero p.lead { color: #c3cbe0; font-size: 1.1rem; max-width: 56ch; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border-radius: 999px; font-size: .9rem;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+  }
+  .chip::before { content: "✓"; color: #34d399; font-weight: 700; }
+
+  /* Layout */
+  .layout {
+    max-width: 1100px; margin: -56px auto 0; padding: 0 24px 80px;
+    display: grid; grid-template-columns: 220px 1fr; gap: 40px;
+    position: relative; z-index: 2;
+  }
+  .toc {
+    position: sticky; top: 24px; align-self: start;
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 18px;
+  }
+  .toc h4 { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .toc a {
+    display: block; padding: 7px 10px; border-radius: 8px;
+    color: var(--muted); font-size: .92rem; transition: all .2s;
+  }
+  .toc a:hover { text-decoration: none; color: var(--ink); background: var(--accent-soft); }
+  .toc a.active { color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+
+  article {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 48px clamp(22px, 5vw, 56px);
+  }
+  section { scroll-margin-top: 24px; padding-bottom: 40px; margin-bottom: 40px; border-bottom: 1px solid var(--line); }
+  section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  h2 {
+    font-family: "Fraunces", serif; font-size: 1.75rem; line-height: 1.2;
+    margin-bottom: 16px; display: flex; align-items: baseline; gap: 12px;
+  }
+  h2 .num { font-family: "Inter", sans-serif; font-size: .85rem; color: var(--accent); font-weight: 600; }
+  h3 { font-size: 1rem; margin: 22px 0 10px; }
+  p + p { margin-top: 12px; }
+  strong { font-weight: 600; }
+
+  /* Feature cards */
+  .features { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin: 20px 0; }
+  .card {
+    border: 1px solid var(--line); border-radius: 14px; padding: 18px;
+    background: var(--bg); transition: transform .2s, border-color .2s;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .icon {
+    width: 40px; height: 40px; border-radius: 10px; margin-bottom: 12px;
+    background: var(--accent-soft); color: var(--accent);
+    display: grid; place-items: center;
+  }
+  .icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .card h4 { font-size: 1rem; margin-bottom: 4px; }
+  .card p { font-size: .92rem; color: var(--muted); line-height: 1.55; }
+
+  /* Callout */
+  .callout {
+    border-left: 4px solid var(--accent); background: var(--accent-soft);
+    padding: 18px 22px; border-radius: 0 12px 12px 0; margin: 18px 0;
+    font-family: "Fraunces", serif; font-size: 1.3rem; font-weight: 500;
+  }
+
+  /* Do / Don't lists */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .box { border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .box h4 { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
+  .box.never h4 { color: var(--bad); }
+  .box.only h4 { color: var(--good); }
+  .box ul { list-style: none; }
+  .box li { padding: 8px 0 8px 30px; position: relative; font-size: .95rem; border-top: 1px dashed var(--line); }
+  .box li:first-child { border-top: none; }
+  .box li::before {
+    position: absolute; left: 0; top: 8px; width: 20px; height: 20px; border-radius: 50%;
+    display: grid; place-items: center; font-size: .7rem; font-weight: 700;
+  }
+  .never li::before { content: "✕"; background: rgba(194,65,12,.12); color: var(--bad); }
+  .only li::before { content: "✓"; background: rgba(18,128,92,.12); color: var(--good); }
+
+  ul.plain { padding-left: 20px; margin: 12px 0; }
+  ul.plain li { margin: 6px 0; }
+
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px;
+  }
+  .checklist li span { color: var(--accent); font-weight: 700; }
+
+  .contact {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    padding: 24px; border-radius: 14px; margin-top: 16px;
+    background: linear-gradient(135deg, var(--accent-soft), transparent);
+    border: 1px solid var(--line);
+  }
+  .btn {
+    display: inline-block; padding: 12px 20px; border-radius: 10px;
+    background: var(--accent); color: #fff; font-weight: 600;
+  }
+  .btn:hover { text-decoration: none; opacity: .9; }
+
+  footer { text-align: center; color: var(--muted); font-size: .9rem; padding: 0 24px 48px; }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    .toc { position: static; display: flex; flex-wrap: wrap; gap: 4px; }
+    .toc h4 { width: 100%; }
+    .split { grid-template-columns: 1fr; }
+  }
+  @media print {
+    .hero::before, .hero::after, #progress, .toc { display: none; }
+    .hero { background: none; color: #000; padding-bottom: 20px; }
+    .layout { display: block; margin: 0; }
+    article { border: none; }
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="hero">
+  <nav class="nav">
+    <div class="brand"><div class="logo">U</div>Unify</div>
+    <span class="pill">Last updated · October 17, 2026</span>
+  </nav>
+  <div class="hero-content">
+    <div class="eyebrow">Privacy Policy</div>
+    <h1>Your data stays yours.</h1>
+    <p class="lead">Unify turns portal.dii.tj into a faster, cleaner mobile app for DII students, without collecting what it doesn't need.</p>
+    <div class="chips">
+      <span class="chip">No tracking</span>
+      <span class="chip">No ads</span>
+      <span class="chip">No data selling</span>
+      <span class="chip">No profiling</span>
+    </div>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="toc">
+    <h4>On this page</h4>
+    <a href="#about">About Unify</a>
+    <a href="#offers">What Unify offers</a>
+    <a href="#data">Data collection</a>
+    <a href="#ownership">Ownership &amp; rights</a>
+    <a href="#security">Security</a>
+    <a href="#children">Children</a>
+    <a href="#agreement">Your agreement</a>
+    <a href="#contact">Contact</a>
+  </aside>
+
+  <article>
+    <section id="about">
+      <h2><span class="num">01</span>About Unify</h2>
+      <p>Unify is a student-focused mobile application created to improve how students of <strong>DII (dii.tj)</strong> access and interact with their university portal. Our goal is simple: take the existing <strong>portal.dii.tj</strong> web experience and turn it into a faster, cleaner, more comfortable mobile application that students can rely on every day.</p>
+      <p>Instead of opening a browser, logging in, waiting for pages to load, and hunting through tabs, Unify brings everything you need from the portal directly into one organized mobile app, with a modern academic design built for student life.</p>
+    </section>
+
+    <section id="offers">
+      <h2><span class="num">02</span>What Unify offers</h2>
+      <p>Unify is built as an improved mobile companion to portal.dii.tj. Features we provide or are building include:</p>
+      <div class="features">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+          <h4>Class notifications</h4>
+          <p>Get notified before your next class starts, so you never miss a lecture, lab, or seminar.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+          <h4>GPA tracking</h4>
+          <p>View your GPA and academic standing anytime, without digging through the portal.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+          <h4>Attendance monitoring</h4>
+          <p>See which classes you've attended and know where you stand before it becomes a problem.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+          <h4>Schedule overview</h4>
+          <p>Today's classes, tomorrow's classes, and your full weekly schedule at a glance.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></div>
+          <h4>Stay updated</h4>
+          <p>Academic updates, announcements, and university notifications in a clean, organized feed.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <h4>Faster access</h4>
+          <p>Everything from the portal, reorganized for mobile, with better speed and a better experience.</p>
+        </div>
+      </div>
+      <p>Our mission with Unify is to make student life at DII smoother, more organized, and more connected, without adding complexity.</p>
+    </section>
+
+    <section id="data">
+      <h2><span class="num">03</span>Data collection</h2>
+      <div class="callout">We do not want to collect your personal data.</div>
+      <p>Unify is designed as a reader and presenter of information that already belongs to you and already exists on the official DII portal (portal.dii.tj).</p>
+      <p>The app works by connecting to the official DII portal using your own university login credentials. Any academic information, such as your schedule, GPA, attendance, or notifications, is retrieved from the university's own systems and shown to you inside the app. We do not store this information on separate servers for marketing or analytical purposes.</p>
+      <div class="split">
+        <div class="box never">
+          <h4>What we never do</h4>
+          <ul>
+            <li>Build profiles on students</li>
+            <li>Sell information</li>
+            <li>Share student data with advertisers</li>
+            <li>Run tracking or profiling for commercial purposes</li>
+          </ul>
+        </div>
+        <div class="box only">
+          <h4>The only data the app handles</h4>
+          <ul>
+            <li><strong>Your university login</strong>, used only to sign you in to the DII portal, exactly as in a web browser.</li>
+            <li><strong>Local device data</strong> such as notification preferences, saved on your device for class reminders.</li>
+            <li><strong>Basic technical info</strong> such as crash reports, used only to fix bugs and improve stability.</li>
+          </ul>
+        </div>
+      </div>
+      <p>We do not ask for data we don't need. We do not want data we don't need.</p>
+    </section>
+
+    <section id="ownership">
+      <h2><span class="num">04</span>Ownership &amp; rights</h2>
+      <p><strong>Unify is operated on behalf of DII (dii.tj).</strong> This application, the data it presents, the portal it connects to, and the academic information shown inside the app all belong to and are the responsibility of DII.</p>
+      <h3>DII reserves the full right to:</h3>
+      <ul class="plain">
+        <li>Modify, update, or replace this privacy policy at any time, without prior notice.</li>
+        <li>Change how the app functions, what features it provides, or how data is handled.</li>
+        <li>Suspend, restrict, or discontinue the app or any of its features.</li>
+        <li>Update the terms under which students may use the app.</li>
+      </ul>
+      <p>Students are encouraged to review this privacy policy from time to time to stay informed of any changes. Continued use of the app after any update means the updated policy applies to you.</p>
+    </section>
+
+    <section id="security">
+      <h2><span class="num">05</span>Security</h2>
+      <p>We take reasonable care to protect your login and any data handled by the app. However, no system connected to the internet is ever completely secure. You are responsible for keeping your university login credentials private.</p>
+    </section>
+
+    <section id="children">
+      <h2><span class="num">06</span>Children</h2>
+      <p>Unify is intended for students of DII and is not directed at children under the age of 13.</p>
+    </section>
+
+    <section id="agreement">
+      <h2><span class="num">07</span>Your agreement</h2>
+      <p>By downloading, installing, or using Unify, you confirm that:</p>
+      <ul class="checklist">
+        <li><span>✓</span>You have read and understood this Privacy Policy.</li>
+        <li><span>✓</span>You agree to this Privacy Policy and to any future updates DII makes to it.</li>
+        <li><span>✓</span>You understand that Unify is built to serve DII students as a better mobile experience of portal.dii.tj, and that DII holds full rights over the app and this policy.</li>
+      </ul>
+      <p>If you do not agree with any part of this policy, please do not use the application.</p>
+    </section>
+
+    <section id="contact">
+      <h2><span class="num">08</span>Contact</h2>
+      <p>For questions, concerns, or feedback regarding this Privacy Policy or the Unify app:</p>
+      <div class="contact">
+        <div>
+          <strong>Email</strong><br>
+          <a href="mailto:barotovotabek2008@gmail.com">barotovotabek2008@gmail.com</a>
+        </div>
+        <a class="btn" href="mailto:barotovotabek2008@gmail.com?subject=Unify%20Privacy%20Policy">Send an email</a>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <strong>Unify</strong> · A better mobile experience for DII students · Operated under DII (dii.tj)
+</footer>
+
+<script>
+  // Reading progress bar
+  const bar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // Highlight current section in the sidebar
+  const links = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('section').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
